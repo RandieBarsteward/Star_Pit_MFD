@@ -1,0 +1,380 @@
+<html lang="en">
+    <head>
+        <title>Anvil Airospace</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="spstyle.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+        <script src="../asmCrypto.min.js"></script>
+        <script src="../mfd.js"></script>
+    </head>
+    <body>
+        <div id="start">
+            <input type="text" id="keyfield">
+            <button id="enter" class="noselect" onclick="submit();"> Enter </button>
+            <p>
+       </div>
+
+        <div id="display" class="noselect">
+
+            <!-- Tab system -->
+            <div id="tabs">
+                <div id="tab1" onclick="vib();setTab('tab1')">
+                    <span>Weapon Control</span>
+                </div >
+                <div id="tab2" onclick="vib();setTab('tab2')">
+                    <span>Flight Controls</span>
+                </div>
+                <div id="tab3" onclick="vib();setTab('tab3')">
+                    <span>Shields</span>
+                </div>
+		        <div id="tab4" onclick="vib();setTab('tab4')">
+                    <span>System</span>
+                </div>
+            </div>
+
+<!-- Modifying anything ABOVE this line isn't recommended unless you have HTML/CSS/JS experience -->
+			<div id="tabcontent">
+                <!-- ////////////////////   TAB 1   //////////////////// -->
+                <div id="tab1_display" style="grid-template-columns: repeat(6, 1fr);">                
+
+                   <!-- First row -->
+		   <div><span></span></div>
+                   <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
+                        <span>
+                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
+                            Tgt Hairs
+                        </span>
+                    </div>
+   		    <div><span></span></div>
+                    <div><span></span></div>
+		    <div><span></span></div>
+
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');setButton('WpnGrp');">
+                        <span>
+                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
+                            Wpn <br> Group 1 <br> On/Off
+                        </span>
+                    </div>
+	   	    
+
+<!-- Second row -->
+
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
+                        <span>
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
+                            Hostile Back
+                        </span>
+                    </div>
+                   <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
+                        <span>
+                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
+                            Nearest Hostile
+                        </span>
+                    </div>
+   		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
+                        <span>
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
+                            Hostile Forward
+                        </span>
+                    </div>
+                    <div><span></span></div>
+		    <div><span></span></div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
+                        <span>
+                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
+                            Wpn <br> Group 2 <br> On/Off
+                        </span>
+                    </div>
+
+      <!-- Third row -->
+
+                    <div><span></span></div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-cogs" aria-hidden="true"></i><br>
+                            Sub System
+                        </span>
+                    </div>
+                    <div><span></span></div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-map-pin" aria-hidden="true"></i><br>
+                            Pin Target
+                        </span>
+                    </div>
+ 		    <div><span></span></div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-rocket" aria-hidden="true"></i><br>
+                            Missile <br> Arm
+                        </span>
+		   </div>	
+
+<!-- Fourth row -->
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
+                            Cycle Friendlies<br>Back
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
+                            Cycle Friendlies<br>Forward
+                        </span>
+                    </div>
+		    <div><span></span></div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-recycle" aria-hidden="true"></i><br>
+                            Cycle<br>Pinned<br>Target
+                        </span>
+                    </div>
+		    <div><span></span></div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-dropbox" aria-hidden="true"></i><br>
+                            Bomb Doors
+                        </span>
+		   </div>
+
+
+
+
+
+
+
+
+</div>  
+                <!-- ////////////////////   TAB 2   //////////////////// -->
+                <div id="tab2_display" style="grid-template-columns: repeat(4, 1fr);">
+                    <!-- First row -->
+                    <div class="greenpit" onclick="vib();mfd.keyTap('o', ['alt']);">
+                        <span>
+                            <i class="fas fa-ban fa-lg"></i><br>
+                            E.S.P. Toggle
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('j', ['alt']);">
+                        <span>
+                            <i class="fas fa-lock fa-lg"></i><br>
+                            Gimbal Lock
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('k', ['alt']);">
+                        <span>
+                            <i class="fas fa-crosshairs fa-lg"></i><br>
+                            Reticle Mode
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('m', ['alt']);">
+                        <span>
+                            <i class="fas fa-spinner fa-lg"></i><br>
+                            Look Ahead
+                        </span>
+                    </div>
+                    <!-- Second row -->
+                    <div class="greenpit" onclick="vib();mfd.keyTap(',', ['alt']);">
+                        <span>
+                            <i class="fas fa-mouse-pointer fa-lg"></i><br>
+                            Cycle Mouse Move Mode
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('v');">
+                        <span>
+                            <i class="fas fa-microchip fa-lg"></i><br>
+                            Decouple Mode Toggle
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('n');">
+                        <span>
+                            <i class="fas fa-globe fa-lg"></i><br>
+                            Landing Mode
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('2');">
+                        <span>
+                            <i class="fas fa-save fa-lg"></i><br>
+                            Cycle IFCS Safeties
+                        </span>
+                    </div>
+                </div>
+                <!-- ////////////////////   TAB 3   //////////////////// -->
+<div id="tab3_display" style="grid-template-columns: repeat(5, 1fr);">                
+
+                   <!-- First row -->
+                   <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
+                        <span>
+                            <i class="fas fa-arrow-circle-up fa-lg"></i><br>
+                            Shield<br>Top
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num8');">
+                        <span>
+                            <i class="fas fa-arrow-up fa-lg"></i><br>
+                            Shield<br>Front
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num9');">
+                        <span>
+                            <i class="fas fa-arrow-circle-down fa-lg"></i><br>
+                            Shield<br>Bottom
+                        </span>
+                    </div>
+		    <div><span></span></div>
+	   	    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br>
+                            Launch CM
+                        </span>
+		   </div>
+
+<!-- Second row -->
+
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num4');">
+                        <span>
+                            <i class="fas fa-arrow-left fa-lg"></i><br>
+                            Shield<br>Left
+                        </span>
+                    </div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num5');">
+                        <span>
+                            <i class="fas fa-circle fa-lg"></i><br>
+                            Shield<br>Even
+                        </span>
+                    </div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num6');">
+                        <span>
+                            <i class="fas fa-arrow-right fa-lg"></i><br>
+                            Shield<br>Right
+                        </span>
+		     </div>
+		    <div><span></span></div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-power-off" aria-hidden="true"></i><br>
+                            C/Measure Off
+                        </span>
+		   </div>
+
+      <!-- Third row -->
+
+                    <div><span></span></div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fas fa-arrow-down fa-lg"></i><br>
+                            Shield<br>Back
+                        </span>
+                    </div>
+                    <div><span></span></div>
+		    <div><span></span></div>
+		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fas fa-arrow-up fa-lg"></i><br>
+                            C/Measure Up
+                        </span>
+		   </div>	
+
+<!-- Fourth row -->
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fa fa-space-shuttle" aria-hidden="true"></i><br>
+                            On/Off Shield
+                        </span>
+                    </div>
+                    <div><span></span></div>
+		    <div><span></span></div>
+		    <div><span></span></div>
+                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
+                        <span>
+                            <i class="fas fa-arrow-down fa-lg"></i><br>
+                            C/Measure Up
+                        </span>
+		   </div>
+
+
+
+
+
+
+
+
+</div>              
+
+                    
+<!-- ////////////////////   TAB 4   //////////////////// -->
+                <div id="tab4_display" style="grid-template-columns: repeat(3, 1fr);">
+                    
+<!-- First row -->
+                   
+<div class="greenpit" onclick="vib();mfd.keyTap('8')">
+                        <span>
+                            <i class="fas fa-rocket fa-lg"></i><br>
+                            Flight Ready
+                        </span>
+                    </div>
+<div><span></span></div>
+<div class="greenpit" onclick="vib();mfd.keyTap('num8', ['alt']).keyTap('num8', ['alt']);">
+                        <span>
+                            <i class="fas fa-plus fa-lg"></i>&nbsp;<i class="fas fa-plus fa-lg"></i><br>
+                            100% Cooling
+                        </span>
+                    </div>
+
+<div class="greenpit" onclick="vib();mfd.keyTap('9')">
+                        <span>
+                            <i class="fas fa-home fa-lg"></i><br>
+                            Open/Close Doors
+                        </span>
+                    </div>
+<div><span></span></div>
+<div class="greenpit" ontouchstart="vib();mfd.keyOn('alt').keyOn('num8');" ontouchend="mfd.keyOff('num8').keyOff('alt');">
+                        <span>
+                            <i class="fas fa-plus fa-lg"></i><br>
+                            Cooling
+                        </span>
+                    </div>
+
+<!-- Second row -->
+<div class="greenpit" onclick="vib();mfd.keyTap('num8', ['alt']).keyTap('num8', ['alt']);">
+                        <span>
+                           <i class="fas fa-lightbulb fa-lg"></i>&nbsp;<i class="fas fa-plus fa-lg"></i><br>
+                            Lights<br>On/Off
+                        </span>
+                    </div>
+<div><span></span></div>
+<div class="greenpit" ontouchstart="vib();mfd.keyOn('alt').keyOn('num7');" ontouchend="mfd.keyOff('num7').keyOff('alt');">
+                        <span>
+                            <i class="fas fa-minus fa-lg"></i><br>
+                            Cooling
+                        </span>
+                    </div>
+ <div class="greenpit" onclick="vib();mfd.keyTap('0')">
+                        <span>
+                            <i class="fas fa-lock-open fa-lg"></i><br>
+                            Lock/Unlock Doors
+                        </span>
+                    </div>
+<div><span></span></div>
+<div class="greenpit" onclick="vib();mfd.keyTap('num7', ['alt']).keyTap('num7', ['alt']);">
+                        <span>
+                            <i class="fas fa-minus fa-lg"></i>&nbsp;<i class="fas fa-minus fa-lg"></i><br>
+                            0% Cooling
+                        </span>
+                    </div>
+<div><span></span></div>
+<div><span></span></div>
+<div><span></span></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+<!-- Modifying anything BELOW this line isn't recommended unless you have HTML/CSS/JS experience -->
+
+        </div>
+
+        <script src="spscript.js"></script>
+    </body>
+</html>
