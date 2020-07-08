@@ -1,380 +1,587 @@
 <html lang="en">
-    <head>
-        <title>Anvil Airospace</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="spstyle.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-        <script src="../asmCrypto.min.js"></script>
-        <script src="../mfd.js"></script>
-    </head>
-    <body>
-        <div id="start">
-            <input type="text" id="keyfield">
-            <button id="enter" class="noselect" onclick="submit();"> Enter </button>
-            <p>
-       </div>
 
-        <div id="display" class="noselect">
-
-            <!-- Tab system -->
-            <div id="tabs">
-                <div id="tab1" onclick="vib();setTab('tab1')">
-                    <span>Weapon Control</span>
-                </div >
-                <div id="tab2" onclick="vib();setTab('tab2')">
-                    <span>Flight Controls</span>
-                </div>
-                <div id="tab3" onclick="vib();setTab('tab3')">
-                    <span>Shields</span>
-                </div>
-		        <div id="tab4" onclick="vib();setTab('tab4')">
-                    <span>System</span>
-                </div>
-            </div>
-
-<!-- Modifying anything ABOVE this line isn't recommended unless you have HTML/CSS/JS experience -->
-			<div id="tabcontent">
-                <!-- ////////////////////   TAB 1   //////////////////// -->
-                <div id="tab1_display" style="grid-template-columns: repeat(6, 1fr);">                
-
-                   <!-- First row -->
-		   <div><span></span></div>
-                   <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
-                        <span>
-                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
-                            Tgt Hairs
-                        </span>
-                    </div>
-   		    <div><span></span></div>
-                    <div><span></span></div>
-		    <div><span></span></div>
-
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');setButton('WpnGrp');">
-                        <span>
-                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
-                            Wpn <br> Group 1 <br> On/Off
-                        </span>
-                    </div>
-	   	    
-
-<!-- Second row -->
-
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
-                        <span>
-                            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
-                            Hostile Back
-                        </span>
-                    </div>
-                   <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
-                        <span>
-                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
-                            Nearest Hostile
-                        </span>
-                    </div>
-   		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
-                        <span>
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
-                            Hostile Forward
-                        </span>
-                    </div>
-                    <div><span></span></div>
-		    <div><span></span></div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
-                        <span>
-                            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
-                            Wpn <br> Group 2 <br> On/Off
-                        </span>
-                    </div>
-
-      <!-- Third row -->
-
-                    <div><span></span></div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-cogs" aria-hidden="true"></i><br>
-                            Sub System
-                        </span>
-                    </div>
-                    <div><span></span></div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-map-pin" aria-hidden="true"></i><br>
-                            Pin Target
-                        </span>
-                    </div>
- 		    <div><span></span></div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-rocket" aria-hidden="true"></i><br>
-                            Missile <br> Arm
-                        </span>
-		   </div>	
-
-<!-- Fourth row -->
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
-                            Cycle Friendlies<br>Back
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
-                            Cycle Friendlies<br>Forward
-                        </span>
-                    </div>
-		    <div><span></span></div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-recycle" aria-hidden="true"></i><br>
-                            Cycle<br>Pinned<br>Target
-                        </span>
-                    </div>
-		    <div><span></span></div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-dropbox" aria-hidden="true"></i><br>
-                            Bomb Doors
-                        </span>
-		   </div>
+<head>
+  <title>Anvil Airospace</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="loading-bar.css" />
+  <link rel="stylesheet" type="text/css" href="spstyle.css">
 
 
 
+  <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+  <script src="../asmCrypto.min.js"></script>
+  <script src="../mfd.js"></script>
+</head>
+
+<body>
+  <div id="start">
+    <input type="text" id="keyfield">
+    <button id="enter" class="noselect" onclick="submit(); mfd.vJoy.info;"> Enter </button>
+    <p>
+  </div>
+
+  <div id="display" class="noselect">
+
+    <!-- Tab system -->
+    <div id="tabs">
+      <div id="tab1" onclick="vib();setTab('tab1');">
+        <span>WEAPONS</span>
+      </div>
+      <div id="tab2" onclick="vib();setTab('tab2')">
+        <span>FLIGHT SYS</span>
+      </div>
+      <div id="tab3" onclick="vib();setTab('tab3')">
+        <span>SHIELDS</span>
+      </div>
+      <div id="tab4" onclick="vib();setTab('tab4')">
+        <span>SYSTEMS</span>
+      </div>
+      <div id="tab5" onclick="vib();setTab('tab5')">
+        <span>MINING</span>
+      </div>
+      <div id="tab6" onclick="vib();setTab('tab6')">
+        <span>QT / Landing</span>
+      </div>
+      <div id="tab7" onclick="vib();setTab('tab7')">
+        <span>GALLOG</span>
+      </div>
+      <div id="tab8" onclick="vib();setTab('tab8')">
+        <span>TEST</span>
+      </div>
+    </div>
+
+    <!-- Modifying anything ABOVE this line isn't recommended unless you have HTML/CSS/JS experience -->
+    <div id="tabcontent">
+      <!-- ////////////////////   TAB 1   //////////////////// -->
+      <div id="tab1_display" style="grid-template-columns: [full-start] 200px [content-start] 80px [content-end] 200px [full-end] 50px [content-end] 100px [full-end]; grid-template-rows: 100px ">
+
+        <!-- First row -->
+        <div class="starpit" onclick="vib();fireBtn(1);">
+          <span>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
+            Cycle Friendly Back
+          </span>
+        </div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(2);">
+          <span>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
+            Cycle Friendly Forward
+          </span>
+        </div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();wpnGrp1Safe(3);buttonHandler(this);">
+          <span>
+            <i class="fa fa-crosshairs" aria-hidden="true"></i><br>
+            Weapon Group 1
+            Safety
+          </span>
+        </div>
+
+        <!-- Second row -->
+        <div class="starpit" onclick="vib();fireBtn(4);">
+          <span>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
+            Cycle Pin
+            Back
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(5);">
+          <span>
+            <i class="fa fa-map-pin" aria-hidden="true"></i><br>
+            Pin Target
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(6);">
+          <span>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
+            Cycle Pin
+            Forward
+          </span>
+        </div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();wpnGrp2Safe(7);buttonHandler(this);">
+          <span>
+            <i class="fas fa-rocket fa-lg" aria-hidden="true"></i><br>
+            Missile Safety
+          </span>
+        </div>
+
+        <!-- Third row -->
+
+        <div><span></span></div>
+
+        <div><span></span></div>
+
+        <div><span></span></div>
+
+        <div><span></span></div>
+
+        <div><span></span></div>
+
+        <!-- Forth row -->
+
+        <div class="starpit" onclick="vib();fireBtn(9);">
+          <span>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i><br>
+            Subsystem Target
+            Back
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(50);">
+          <span>
+            Clear
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(10);">
+          <span>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
+            Subsystem Target
+            Forward
+          </span>
+        </div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(11);buttonHandler(this);">
+          <span>
+            <i class="fas fa-crosshairs fa-lg" aria-hidden="true"></i><br>
+            Bomb Doors
+          </span>
+        </div>
+      </div>
+
+      <!-- ////////////////////   TAB 2   //////////////////// -->
+      <div id="tab2_display" style="grid-template-columns: repeat(4, 1fr);">
+        <!-- First row -->
+        <div class="starpit" onclick="vib();fireBtn(12);">
+          <span>
+            <i class="fas fa-ban fa-lg"></i><br>
+            E.S.P. Toggle
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(13);">
+          <span>
+            <i class="fas fa-save fa-lg"></i><br>
+            Cycle IFCS Safeties
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(14);">
+          <span>
+            <i class="fas fa-microchip fa-lg"></i><br>
+            Decouple Mode Toggle
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(15);">
+          <span>
+            <i class="fas fa-lock fa-lg"></i><br>
+            Gimbal Lock
+          </span>
+        </div>
+        <!-- Second row -->
+        <div class="starpit" onclick="vib();fireBtn(16);">
+          <span>
+            <i class="fas fa-mouse-pointer fa-lg"></i><br>
+            Cycle Mouse Move Mode
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(17);">
+          <span>
+            <i class="fas fa-crosshairs fa-lg"></i><br>
+            Reticle Mode
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(48);">
+          <span>
+            <i class="fas fa-head fa-lg"></i><br>
+            Recal Head Tracking
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(18);">
+          <span>
+            <i class="fas fa-spinner fa-lg"></i><br>
+            Look Ahead
+          </span>
+        </div>
+
+      </div>
+      <!-- ////////////////////   TAB 3   //////////////////// -->
+      <div id="tab3_display" style="grid-template-columns: repeat(5, 1fr);">
+
+        <!-- First row -->
+        <div class="starpit" onclick="vib();fireBtn(19);">
+          <span>
+            <i class="fas fa-arrow-circle-up fa-lg"></i><br>
+            Shield<br>Top
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(20);">
+          <span>
+            <i class="fas fa-arrow-up fa-lg"></i><br>
+            Shield<br>Front
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(21);">
+          <span>
+            <i class="fas fa-arrow-circle-down fa-lg"></i><br>
+            Shield<br>Bottom
+          </span>
+        </div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(22);">
+          <span>
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br>
+            Launch CM
+          </span>
+        </div>
+
+        <!-- Second row -->
+
+        <div class="starpit" onclick="vib();fireBtn(23);">
+          <span>
+            <i class="fas fa-arrow-left fa-lg"></i><br>
+            Shield<br>Left
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(24);">
+          <span>
+            <i class="fas fa-circle fa-lg"></i><br>
+            Shield<br>Even
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(25);">
+          <span>
+            <i class="fas fa-arrow-right fa-lg"></i><br>
+            Shield<br>Right
+          </span>
+        </div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(26);">
+          <span>
+            <i class="fa fa-power-off" aria-hidden="true"></i><br>
+            C/Measure Off
+          </span>
+        </div>
+
+        <!-- Third row -->
+
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(27);">
+          <span>
+            <i class="fas fa-arrow-down fa-lg"></i><br>
+            Shield<br>Back
+          </span>
+        </div>
+        <div><span></span></div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(28);">
+          <span>
+            <i class="fas fa-arrow-up fa-lg"></i><br>
+            C/Measure Up
+          </span>
+        </div>
+
+        <!-- Fourth row -->
+        <div class="starpit" onclick="vib();fireBtn(29);">
+          <span>
+            <i class="fa fa-space-shuttle" aria-hidden="true"></i><br>
+            On/Off Shield
+          </span>
+        </div>
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(30);">
+          <span>
+            <i class="fas fa-arrow-down fa-lg"></i><br>
+            C/Measure Up
+          </span>
+        </div>
 
 
+      </div>
+      <!-- ////////////////////   TAB 4   //////////////////// -->
+      <div id="tab4_display" style="grid-template-columns: repeat(3, 1fr);">
+
+        <!-- First row -->
+
+        <div class="starpit" onclick="vib();fireBtn(31)">
+          <span>
+            <i class="fas fa-rocket fa-lg"></i><br>
+            Flight Ready
+          </span>
+        </div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(32);">
+          <span>
+            <i class="fas fa-plus fa-lg"></i>&nbsp;<i class="fas fa-plus fa-lg"></i><br>
+            100% Cooling
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(33)" ;>
+          <span>
+            <i class="fas fa-home fa-lg"></i><br>
+            Open/Close Doors
+          </span>
+        </div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(34);">
+          <span>
+            <i class="fas fa-plus fa-lg"></i><br>
+            Cooling
+          </span>
+        </div>
+
+        <!-- Second row -->
+        <div class="starpit" onclick="vib();fireBtn(35);">
+          <span>
+            <i class="fas fa-lightbulb fa-lg"></i><br>
+            Lights<br>On/Off
+          </span>
+        </div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(36);">
+          <span>
+            <i class="fas fa-minus fa-lg"></i><br>
+            Cooling
+          </span>
+        </div>
+        <div class="starpit" onclick="vib();fireBtn(37)">
+          <span>
+            <i class="fas fa-lock-open fa-lg"></i><br>
+            Lock/Unlock Doors
+          </span>
+        </div>
+        <div><span></span></div>
+        <div class="starpit" onclick="vib();fireBtn(38);">
+          <span>
+            <i class="fa fa-power-off"></i><br>
+            0% Cooling
+          </span>
+        </div>
 
 
-
-</div>  
-                <!-- ////////////////////   TAB 2   //////////////////// -->
-                <div id="tab2_display" style="grid-template-columns: repeat(4, 1fr);">
-                    <!-- First row -->
-                    <div class="greenpit" onclick="vib();mfd.keyTap('o', ['alt']);">
-                        <span>
-                            <i class="fas fa-ban fa-lg"></i><br>
-                            E.S.P. Toggle
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('j', ['alt']);">
-                        <span>
-                            <i class="fas fa-lock fa-lg"></i><br>
-                            Gimbal Lock
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('k', ['alt']);">
-                        <span>
-                            <i class="fas fa-crosshairs fa-lg"></i><br>
-                            Reticle Mode
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('m', ['alt']);">
-                        <span>
-                            <i class="fas fa-spinner fa-lg"></i><br>
-                            Look Ahead
-                        </span>
-                    </div>
-                    <!-- Second row -->
-                    <div class="greenpit" onclick="vib();mfd.keyTap(',', ['alt']);">
-                        <span>
-                            <i class="fas fa-mouse-pointer fa-lg"></i><br>
-                            Cycle Mouse Move Mode
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('v');">
-                        <span>
-                            <i class="fas fa-microchip fa-lg"></i><br>
-                            Decouple Mode Toggle
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('n');">
-                        <span>
-                            <i class="fas fa-globe fa-lg"></i><br>
-                            Landing Mode
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('2');">
-                        <span>
-                            <i class="fas fa-save fa-lg"></i><br>
-                            Cycle IFCS Safeties
-                        </span>
-                    </div>
-                </div>
-                <!-- ////////////////////   TAB 3   //////////////////// -->
-<div id="tab3_display" style="grid-template-columns: repeat(5, 1fr);">                
-
-                   <!-- First row -->
-                   <div class="greenpit" onclick="vib();mfd.keyTap('num7');">
-                        <span>
-                            <i class="fas fa-arrow-circle-up fa-lg"></i><br>
-                            Shield<br>Top
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num8');">
-                        <span>
-                            <i class="fas fa-arrow-up fa-lg"></i><br>
-                            Shield<br>Front
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num9');">
-                        <span>
-                            <i class="fas fa-arrow-circle-down fa-lg"></i><br>
-                            Shield<br>Bottom
-                        </span>
-                    </div>
-		    <div><span></span></div>
-	   	    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br>
-                            Launch CM
-                        </span>
-		   </div>
-
-<!-- Second row -->
-
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num4');">
-                        <span>
-                            <i class="fas fa-arrow-left fa-lg"></i><br>
-                            Shield<br>Left
-                        </span>
-                    </div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num5');">
-                        <span>
-                            <i class="fas fa-circle fa-lg"></i><br>
-                            Shield<br>Even
-                        </span>
-                    </div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num6');">
-                        <span>
-                            <i class="fas fa-arrow-right fa-lg"></i><br>
-                            Shield<br>Right
-                        </span>
-		     </div>
-		    <div><span></span></div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-power-off" aria-hidden="true"></i><br>
-                            C/Measure Off
-                        </span>
-		   </div>
-
-      <!-- Third row -->
-
-                    <div><span></span></div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fas fa-arrow-down fa-lg"></i><br>
-                            Shield<br>Back
-                        </span>
-                    </div>
-                    <div><span></span></div>
-		    <div><span></span></div>
-		    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fas fa-arrow-up fa-lg"></i><br>
-                            C/Measure Up
-                        </span>
-		   </div>	
-
-<!-- Fourth row -->
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fa fa-space-shuttle" aria-hidden="true"></i><br>
-                            On/Off Shield
-                        </span>
-                    </div>
-                    <div><span></span></div>
-		    <div><span></span></div>
-		    <div><span></span></div>
-                    <div class="greenpit" onclick="vib();mfd.keyTap('num2');">
-                        <span>
-                            <i class="fas fa-arrow-down fa-lg"></i><br>
-                            C/Measure Up
-                        </span>
-		   </div>
+      </div>
 
 
+      <!-- ////////////////////   TAB 5   //////////////////// -->
+      <div id="tab5_display" style="grid-template-columns: [full-start] 3fr [content-start] 1fr [content-end] 1fr [full-end]; grid-template-rows: 180px 50px 100px 50px;">
 
-
-
-
-
-
-</div>              
-
-                    
-<!-- ////////////////////   TAB 4   //////////////////// -->
-                <div id="tab4_display" style="grid-template-columns: repeat(3, 1fr);">
-                    
-<!-- First row -->
-                   
-<div class="greenpit" onclick="vib();mfd.keyTap('8')">
-                        <span>
-                            <i class="fas fa-rocket fa-lg"></i><br>
-                            Flight Ready
-                        </span>
-                    </div>
-<div><span></span></div>
-<div class="greenpit" onclick="vib();mfd.keyTap('num8', ['alt']).keyTap('num8', ['alt']);">
-                        <span>
-                            <i class="fas fa-plus fa-lg"></i>&nbsp;<i class="fas fa-plus fa-lg"></i><br>
-                            100% Cooling
-                        </span>
-                    </div>
-
-<div class="greenpit" onclick="vib();mfd.keyTap('9')">
-                        <span>
-                            <i class="fas fa-home fa-lg"></i><br>
-                            Open/Close Doors
-                        </span>
-                    </div>
-<div><span></span></div>
-<div class="greenpit" ontouchstart="vib();mfd.keyOn('alt').keyOn('num8');" ontouchend="mfd.keyOff('num8').keyOff('alt');">
-                        <span>
-                            <i class="fas fa-plus fa-lg"></i><br>
-                            Cooling
-                        </span>
-                    </div>
-
-<!-- Second row -->
-<div class="greenpit" onclick="vib();mfd.keyTap('num8', ['alt']).keyTap('num8', ['alt']);">
-                        <span>
-                           <i class="fas fa-lightbulb fa-lg"></i>&nbsp;<i class="fas fa-plus fa-lg"></i><br>
-                            Lights<br>On/Off
-                        </span>
-                    </div>
-<div><span></span></div>
-<div class="greenpit" ontouchstart="vib();mfd.keyOn('alt').keyOn('num7');" ontouchend="mfd.keyOff('num7').keyOff('alt');">
-                        <span>
-                            <i class="fas fa-minus fa-lg"></i><br>
-                            Cooling
-                        </span>
-                    </div>
- <div class="greenpit" onclick="vib();mfd.keyTap('0')">
-                        <span>
-                            <i class="fas fa-lock-open fa-lg"></i><br>
-                            Lock/Unlock Doors
-                        </span>
-                    </div>
-<div><span></span></div>
-<div class="greenpit" onclick="vib();mfd.keyTap('num7', ['alt']).keyTap('num7', ['alt']);">
-                        <span>
-                            <i class="fas fa-minus fa-lg"></i>&nbsp;<i class="fas fa-minus fa-lg"></i><br>
-                            0% Cooling
-                        </span>
-                    </div>
-<div><span></span></div>
-<div><span></span></div>
-<div><span></span></div>
-
-
-                    </div>
-                </div>
-            </div>
-
-<!-- Modifying anything BELOW this line isn't recommended unless you have HTML/CSS/JS experience -->
+        <div class="range-slider">
+          <span id="rs-bullet" class="rs-label">0</span>
+          <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="100">
 
         </div>
 
-        <script src="spscript.js"></script>
-    </body>
+        <div class="box-minmax">
+
+        </div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(39);">
+          <span>
+            <i class="fas fa-spinner fa-lg"></i><br>
+            Mining Mode Toggle
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(40);buttonHandler(this)">
+          <span>
+            Fracture Mode
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(41);buttonHandler(this)">
+          <span>
+            Extract Mode
+          </span>
+        </div>
+
+        <div class="toggleon2" onclick="vib();buttonHandlerpower(this);fireBtn(42);">
+          <span>
+            <i class="fas fa-power-off"></i><br>
+            Power
+          </span>
+        </div>
+
+        <div><span></span></div>
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(51);">
+          <span>
+            <i class="fas fa-spinner fa-lg"></i><br>
+            Dump Cargo
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(52);">
+          <span>
+            Consumable 1
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(53);">
+          <span>
+            Consumable 2
+          </span>
+        </div>
+
+      </div>
+      <!-- ////////////////////   TAB 6   //////////////////// -->
+      <div id="tab6_display" style="grid-template-columns: [full-start] 3fr [content-start] 1fr [content-end] 1fr [full-end]; grid-template-rows: 15px 140px 40px 100px 100px;">
+
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(43);">
+          <span>
+            <i class="fas fa-spinner fa-lg"></i><br>
+            Spool QT Drive
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(44);">
+          <span>
+            Jump
+          </span>
+        </div>
+
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(45);">
+          <span><i class="fas fa-arrow-circle-up fa-lg"></i><br>
+            Landing Gear
+            <span> </span>UP
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(46);buttonHandler(this)">
+          <span>
+            VTOL Toggle
+          </span>
+        </div>
+
+        <div><span></span></div>
+
+        <div class="starpit" onclick="vib();fireBtn(47);">
+          <span><i class="fas fa-arrow-circle-down fa-lg"></i><br>
+            Landing Gear DOWN
+          </span>
+        </div>
+
+        <div class="starpit" onclick="vib();fireBtn(49);">
+          <span>
+            Auto-Landing
+          </span>
+        </div>
+
+      </div>
+
+      <!-- ////////////////////   TAB 7   //////////////////// -->
+      <div id="tab7_display" style="grid-template-columns: 1fr;">
+
+        <iframe src="https://www.gallog.co/trading/" title="Gallog" width="100%" height="100%" frameborder="0">
+
+        </iframe>
+
+        <!-- Modifying anything BELOW this line isn't recommended unless you have HTML/CSS/JS experience -->
+
+
+
+      </div>
+
+      <!-- ////////////////////   TAB 7   //////////////////// -->
+      <div id="tab8_display">
+
+        <div class="parent" style="width:100%;">
+          <div class="div1">
+
+          </div>
+
+          <div class="div2">
+            <a href="#" class="countermeasureLabel">COUNTERMEASURES</a>
+          </div>
+          <div class="div3">
+            <a href="#" class="chaffButton">CHAFF</a>
+
+          </div>
+
+          <div class="div4">
+
+            <a href="#" class="flareButton">FLARE</a></div>
+
+          <div class="div5">
+            <a href="#" class="chaffCount">25</a> </div>
+
+          <div class="div6"> <a href="#" class="flareCount">25</a> </div>
+
+          <div class="div7">
+            <a href="#" class="emLabel">EM SIGNAL</a>
+          </div>
+
+          <div class="div8">
+
+            <div class="EMBar label-center" style="width:100%;height:100%;">
+            </div>
+
+          </div>
+
+          <div class="div9">
+
+            <div class="IRBar label-center" style="width:100%;height:100%;">
+            </div>
+
+          </div>
+
+          <div class="div10">
+            <a href="#" class="missileLabel">MISSILES</a>
+          </div>
+          <div class="div11">
+            <a href="#" class="missileName">STALKER V</a>
+          </div>
+          <div class="div12">
+            <a href="#" class="missileType">IR</a>
+          </div>
+          <div class="div13">
+            <a href="#" class="missileCount">24/25</a>
+          </div>
+          <div class="div14"> </div>
+          <div class="div15">
+            <a href="#" class="shieldsLabel">SHIELDS</a>
+          </div>
+        </div>
+
+
+
+
+        <!-- Modifying anything BELOW this line isn't recommended unless you have HTML/CSS/JS experience -->
+
+
+
+      </div>
+
+      <script type="text/javascript" src="loading-bar.js"></script>
+      <script src="spscript.js"></script>
+</body>
+
 </html>

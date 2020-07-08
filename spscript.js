@@ -1,3 +1,10 @@
+let vd1;
+let vd1Info;
+//let setAxis;
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
 
 const $start = document.getElementById('start');
 const $enter = document.getElementById('enter');
@@ -27,10 +34,11 @@ mfd.getCrypto(() => {
     }
 });
 
+
 function submit () {
     if ($keyfield.style.display !== 'none') {
         mfd.crypto.generateKey($keyfield.value);
-        
+
         localStorage.setItem('mfd-salt', mfd.crypto.salt);
         localStorage.setItem('mfd-its', mfd.crypto.iterations);
         mfd.test(res => {
@@ -53,8 +61,10 @@ function login () {
     // switching out button for the grid
     $start.style.display = 'none';
     $display.style.display = 'block';
-	
-    // animating button fade-in	
+
+
+
+    // animating button fade-in
     const fadeStagger = 50; // in ms
 	for (let i=0; i < tabChildren.length; i++) {
 		setTimeout(() => tabChildren[i].style.opacity = 1, i*fadeStagger);
@@ -67,6 +77,8 @@ function login () {
     }
 
     setTab('tab1');
+    initVJoy();
+
 }
 
 navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -74,6 +86,29 @@ function vib () {
     if (navigator.vibrate) navigator.vibrate(50);
 }
 
+
+
+function buttonHandler(btnElem){
+
+    if (btnElem.className==='toggleon') {
+        btnElem.className='toggleoff';
+    }else {
+
+        btnElem.className='toggleon';
+    }
+
+}
+
+function buttonHandlerpower(btnElem){
+
+    if (btnElem.className==='toggleon2') {
+        btnElem.className='toggleon2off';
+    }else {
+
+        btnElem.className='toggleon2';
+    }
+
+}
 function setTab(tabName) {
     for (let t = 0; t < tabChildren.length; t++) {
         const tab = tabChildren[t];
@@ -101,3 +136,86 @@ function setTab(tabName) {
         }
     }
 }
+
+
+
+function initVJoy(){
+	mfd.vJoy.info(vji => {
+		// simple error checks
+
+		if (!vji.enabled) return console.error('vJoy not enabled test');
+		if (vji.existingDevices < 1) return console.error('No vJoy virtual devices found');
+
+
+		vd1 = mfd.vJoy.device(2);
+
+		vd1.info(x => {
+			// acquiring the device
+			if (x.status === "VJD_STAT_FREE") {
+			        console.log('Stats!');
+				    vd1.acquire();
+			}
+			// setting vdInfo for use by the event handlersbtn
+			// uncomment for testing:
+			console.log('vJoy detected!');
+			console.log(vd1.Info);
+
+		});
+	});
+}
+
+
+function fireBtn(btn) {
+    vd1.setBtn(btn, true);
+	mfd.wait(50);
+	vd1.setBtn(btn, false);}
+
+// Funtions for toggle vJoy input
+
+var wpngroup1 = true;
+
+function wpnGrp1Safe(btn) {
+  if (wpngroup1 == false) {
+      vd1.setBtn(btn, true);
+      wpngroup1 = true;
+  }else {
+      vd1.setBtn(btn, false);
+      wpngroup1 = false;
+  }
+}
+
+var wpngroup2 = true;
+
+function wpnGrp2Safe(btn) {
+  if (wpngroup2 == false) {
+      vd1.setBtn(btn, true);
+      wpngroup2 = true;
+  }else {
+      vd1.setBtn(btn, false);
+      wpngroup2 = false;
+  }
+}
+
+
+  var rangeSlider = document.getElementById("rs-range-line");
+  var rangeBullet = document.getElementById("rs-bullet");
+
+  rangeSlider.addEventListener("input", showSliderValue, false);
+
+  function showSliderValue() {
+    rangeBullet.innerHTML = rangeSlider.value;
+    var bulletPosition = (rangeSlider.value /rangeSlider.max);
+    rangeBullet.style.left = (bulletPosition * 578) + "px";
+    zAxis(rangeSlider.value);
+  }
+
+
+function zAxis(val) {
+  output = val * 327.68
+	mfd.vJoy.device(2).setAxis("z", output);
+}
+
+var bar = new ldBar(
+  node-selector, /* Element or Selector for target element */
+  options /* check Reference for supported options */
+);
