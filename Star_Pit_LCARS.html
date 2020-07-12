@@ -1,283 +1,319 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="lcars.css">
-<style>
-body {font-family: Arial;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lcars.css">
+  <style>
+    body {
+      font-family: Arial;
 
-  background: black;
-}
+      background: black;
+    }
 
-p,
-h1,
-h2,
-h3 {
-  margin-top: 1em;
-}
+    p,
+    h1,
+    h2,
+    h3 {
+      margin-top: 1em;
+    }
 
-pre {
-  display: inline;
-  white-space: pre-line;
-  word-wrap: break-word;
-}
-/* Style the tab border area */
-.tab {
-  overflow: hidden;
+    pre {
+      display: inline;
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
+
+    /* Style the tab border area */
+    .tab {
+      overflow: hidden;
 
 
-}
+    }
 
-/* Style the buttons inside the tab */
-.tab button {
-  background: #fc6;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-  border-radius: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+    /* Style the buttons inside the tab */
+    .tab button {
+      background: #fc6;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      border-radius: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
 
-}
+    }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #c9c;
-}
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #c9c;
+    }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #01e;
-  color: white;
-}
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #01e;
+      color: white;
+    }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border-top: 1.5rem;
-}
-</style>
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border-top: 1.5rem;
+    }
+  </style>
 </head>
+
 <body>
 
 
 
-<div class="tab">
-  <div class="lcars-app-container">
+  <div class="tab">
+    <div class="lcars-app-container">
 
-		<!-- HEADER ==================================================== -->
+      <!-- HEADER ==================================================== -->
 
-		<div id="header" class="lcars-row header">
+      <div id="header" class="lcars-row header">
 
-			<!-- ELBOW -->
-			<div class="lcars-elbow left-bottom lcars-tan-bg"></div>
+        <!-- ELBOW -->
+        <div class="lcars-elbow left-bottom lcars-tan-bg"></div>
 
-			<!-- BAR WITH TITLE -->
-      <div class="lcars-bar spacer"></div>
-			<div class="lcars-bar horizontal lcars-dodger-blue-bg right-divider">
-				<div class="lcars-title right">LCARS</div>
-			</div>
-      <div class="lcars-bar spacer"></div>
+        <!-- BAR WITH TITLE -->
+        <div class="lcars-bar spacer"></div>
+        <div class="lcars-bar horizontal lcars-dodger-blue-bg right-divider">
+          <div class="lcars-title right">LCARS</div>
+        </div>
+        <div class="lcars-bar spacer"></div>
 
-			<!-- ROUNDED EDGE DECORATED -->
+        <!-- ROUNDED EDGE DECORATED -->
 
-      <div class="lcars-bar horizontal lcars-tan-bg right-end"></div>
-		</div>
-
-		<!-- SIDE MENU ================================================= -->
-
-		<div id="left-menu" class="lcars-column start-space lcars-u-1">
-      <div class="lcars-column">
-        <button class="tablinks" onclick="openCity(event, 'Weapons')">Weapons</button>
-        <button class="tablinks" onclick="openCity(event, 'Systems')">Systems</button>
-        <button class="tablinks" onclick="openCity(event, 'WARP')">WARP</button>
-        <button class="tablinks" onclick="openCity(event, 'LCARS')">LCARS</button>
-        <button class="tablinks" onclick="openCity(event, 'TRADE')">TRADE</button>
+        <div class="lcars-bar horizontal lcars-tan-bg right-end"></div>
       </div>
-			<!-- FILLER -->
-			<div class="lcars-bar lcars-u-1"></div>
-		</div>
 
-		<!-- FOOTER ==================================================== -->
+      <!-- SIDE MENU ================================================= -->
 
-		<div id="footer" class="lcars-row ">
-			<!-- ELBOW -->
-			<div class="lcars-elbow left-top lcars-tan-bg"></div>
-			<!-- BAR -->
-      <div class="lcars-bar spacer"></div>
-			<div class="lcars-bar horizontal lcars-dodger-blue-bg both-divider bottom"></div>
-			<!-- ROUNDED EDGE -->
-      <div class="lcars-bar spacer"></div>
-			<div class="lcars-bar horizontal right-end left-divider bottom"></div>
-		</div>
+      <div id="left-menu" class="lcars-column start-space lcars-u-1">
+        <div class="lcars-column">
+          <button class="tablinks" onclick="openCity(event, 'Weapons')">Weapons</button>
+          <button class="tablinks" onclick="openCity(event, 'Systems')">Systems</button>
+          <button class="tablinks" onclick="openCity(event, 'WARP')">WARP</button>
+          <button class="tablinks" onclick="openCity(event, 'LCARS')">LCARS</button>
+          <button class="tablinks" onclick="openCity(event, 'TRADE')">TRADE</button>
+        </div>
+        <!-- FILLER -->
+        <div class="lcars-bar lcars-u-1"></div>
+      </div>
 
-		<!-- MAIN CONTAINER -->
+      <!-- FOOTER ==================================================== -->
+
+      <div id="footer" class="lcars-row ">
+        <!-- ELBOW -->
+        <div class="lcars-elbow left-top lcars-tan-bg"></div>
+        <!-- BAR -->
+        <div class="lcars-bar spacer"></div>
+        <div class="lcars-bar horizontal lcars-dodger-blue-bg both-divider bottom"></div>
+        <!-- ROUNDED EDGE -->
+        <div class="lcars-bar spacer"></div>
+        <div class="lcars-bar horizontal right-end left-divider bottom"></div>
+      </div>
+
+      <!-- MAIN CONTAINER -->
 
 
-</div>
+    </div>
 
-<div id="Weapons" class="tabcontent">
-  <div class="lcars-app-container">
+    <div id="Weapons" class="tabcontent">
+      <div class="lcars-app-container">
 
         <!-- MAIN CONTAINER -->
-    <div id="container">
-      <div class="lcars-column">
-                <div class="lcars-column">
-                  <div class="lcars-element">Simple</div>
-                  <div class="lcars-element button">Button</div>
-                  <div class="lcars-element lcars-red-bg">Coloured</div>
-                </div>
+        <div id="container">
+          <div class="lcars-column">
+            <div class="lcars-column">
+              <div class="lcars-element">Simple</div>
+              <div class="lcars-element button">Button</div>
+              <div class="lcars-element lcars-red-bg">Coloured</div>
+            </div>
 
-              </div>
-              <div class="lcars-column">
-                        <div class="lcars-column">
-                          <div class="lcars-element">Simple</div>
-                          <div class="lcars-element button">Button</div>
-                          <div class="lcars-element lcars-red-bg">Coloured</div>
-                          <div class="lcars-element right-rounded">left round</div>
-                          <div class="lcars-element right-rounded">right round</div>
-                          <div class="lcars-element rounded">round</div>
-                      </div>
+          </div>
+          <div class="lcars-column">
+            <div class="lcars-column">
+              <div class="lcars-element">Simple</div>
+              <div class="lcars-element button">Button</div>
+              <div class="lcars-element lcars-red-bg">Coloured</div>
+              <div class="lcars-element right-rounded">left round</div>
+              <div class="lcars-element right-rounded">right round</div>
+              <div class="lcars-element rounded">round</div>
+            </div>
 
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-  </div>
-</div>
-<div id="Systems" class="tabcontent">
-  <div class="lcars-app-container">
 
-        <!-- MAIN CONTAINER -->
-    <div id="container">
-      <div class="lcars-column">
-                <div class="lcars-column">
-                  <div class="lcars-element">Simple</div>
-                  <div class="lcars-element button">Button</div>
-                  <div class="lcars-element lcars-red-bg">Coloured</div>
-                </div>
-                <div class="lcars-column">
-                  <div class="lcars-element left-rounded">left round</div>
-                  <div class="lcars-element right-rounded">right round</div>
-                  <div class="lcars-element rounded">round</div>
-                </div>
-              </div>
-              <div class="lcars-column">
-                        <div class="lcars-column">
-                          <div class="lcars-element">Simple</div>
-                          <div class="lcars-element button">Button</div>
-                          <div class="lcars-element lcars-red-bg">Coloured</div>
-                        </div>
-                        <div class="lcars-column">
-                          <div class="lcars-element right-rounded">left round</div>
-                          <div class="lcars-element right-rounded">right round</div>
-                          <div class="lcars-element rounded">round</div>
-                        </div>
-                      </div>
+  <div id="Systems" class="tabcontent">
+    <div class="lcars-app-container">
 
-    </div>
-    </div>
-  </div>
-    </div>
-<div id="WARP" class="tabcontent">
-  <div class="lcars-app-container">
+      <!-- MAIN CONTAINER -->
+      <div id="container">
+        <div class="lcars-column">
+          <div class="lcars-column">
+            <div class="lcars-element">Simple</div>
+            <div class="lcars-element button">Button</div>
+            <div class="lcars-element lcars-red-bg">Coloured</div>
+          </div>
+          <div class="lcars-column">
+            <div class="lcars-element left-rounded">left round</div>
+            <div class="lcars-element right-rounded">right round</div>
+            <div class="lcars-element rounded">round</div>
+          </div>
+        </div>
+        <div class="lcars-column">
+          <div class="lcars-column">
+            <div class="lcars-element">Simple</div>
+            <div class="lcars-element button">Button</div>
+            <div class="lcars-element lcars-red-bg">Coloured</div>
+          </div>
+          <div class="lcars-column">
+            <div class="lcars-element right-rounded">left round</div>
+            <div class="lcars-element right-rounded">right round</div>
+            <div class="lcars-element rounded">round</div>
+          </div>
+        </div>
 
-        <!-- MAIN CONTAINER -->
-    <div id="container">
-      <div class="lcars-column">
-                <div class="lcars-column">
-                  <div class="lcars-element">Simple</div>
-                  <div class="lcars-element button">Button</div>
-                  <div class="lcars-element lcars-red-bg">Coloured</div>
-                </div>
-                <div class="lcars-column">
-                  <div class="lcars-element left-rounded">left round</div>
-                  <div class="lcars-element right-rounded">right round</div>
-                  <div class="lcars-element rounded">round</div>
-                </div>
-              </div>
-              <div class="lcars-column">
-                        <div class="lcars-column">
-                          <div class="lcars-element">Simple</div>
-                          <div class="lcars-element button">Button</div>
-                          <div class="lcars-element lcars-red-bg">Coloured</div>
-                        </div>
-                        <div class="lcars-column">
-                          <div class="lcars-element right-rounded">left round</div>
-                          <div class="lcars-element right-rounded">right round</div>
-                          <div class="lcars-element rounded">round</div>
-                        </div>
-                      </div>
-
+      </div>
     </div>
   </div>
+
+  <div id="WARP" class="tabcontent">
+    <div class="lcars-app-container">
+
+      <!-- MAIN CONTAINER -->
+      <div id="container">
+        <div class="lcars-column">
+          <div class="lcars-column">
+            <div class="lcars-element">Simple</div>
+            <div class="lcars-element button">Button</div>
+            <div class="lcars-element lcars-red-bg">Coloured</div>
+          </div>
+          <div class="lcars-column">
+            <div class="lcars-element left-rounded">left round</div>
+            <div class="lcars-element right-rounded">right round</div>
+            <div class="lcars-element rounded">round</div>
+          </div>
+        </div>
+        <div class="lcars-column">
+          <div class="lcars-column">
+            <div class="lcars-element">Simple</div>
+            <div class="lcars-element button">Button</div>
+            <div class="lcars-element lcars-red-bg">Coloured</div>
+          </div>
+          <div class="lcars-column">
+            <div class="lcars-element right-rounded">left round</div>
+            <div class="lcars-element right-rounded">right round</div>
+            <div class="lcars-element rounded">round</div>
+          </div>
+        </div>
+
+      </div>
     </div>
-<div id="LCARS" class="tabcontent">
-  <div class="lcars-app-container">
+  </div>
 
-				<!-- MAIN CONTAINER -->
-		<div id="container">
-			<div class="lcars-column">
-								<div class="lcars-column">
-									<div class="lcars-element">Simple</div>
-									<div class="lcars-element button">Button</div>
-									<div class="lcars-element lcars-red-bg">Coloured</div>
-								</div>
-								<div class="lcars-column">
-									<div class="lcars-element left-rounded">left round</div>
-									<div class="lcars-element right-rounded">right round</div>
-									<div class="lcars-element rounded">round</div>
-								</div>
-							</div>
-							<div class="lcars-column">
-												<div class="lcars-column">
-													<div class="lcars-element">Simple</div>
-													<div class="lcars-element button">Button</div>
-													<div class="lcars-element lcars-red-bg">Coloured</div>
-												</div>
-												<div class="lcars-column">
-													<div class="lcars-element right-rounded">left round</div>
-													<div class="lcars-element right-rounded">right round</div>
-													<div class="lcars-element rounded">round</div>
-												</div>
-											</div>
+  <div id="LCARS" class="tabcontent">
+    <div class="lcars-app-container">
 
-		</div>
+      <!-- MAIN CONTAINER -->
+      <div id="container">
+        <div class="lcars-row">
+          <div id="countermeasures" class="lcars-column">
+            <div class="lcars-row">
+              <div class="lcars-bracket left hollow"></div>
+              <div class="lcars-column">
+                <div class="lcars-element"></div>
+                <div class="lcars-element"></div>
+              </div>
+              <div class="lcars-bracket right hollow"></div>
+            </div>
+            <div class="lcars-black-bg lcars-vu-2"></div>
+            <div class="lcars-column lcars-u-2">
+              <div class="lcars-bracket top hollow"></div>
+              <div class="lcars-row">
+                <div class="lcars-element"></div>
+                <div class="lcars-element"></div>
+              </div>
+              <div class="lcars-bracket bottom hollow"></div>
+            </div>
+          </div>
+          <div id="block" class="lcars-column">
+            <div class="lcars-black-bg lcars-u-1"></div>
+          </div>
+          <div id="safeties" class="lcars-column">
+            <svg width="80mm" height="80mm" version="1.1" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <metadata>
+                <rdf:rdf>
+                  <cc:work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+                    <dc:title></dc:title>
+                  </cc:work>
+                </rdf:rdf>
+              </metadata>
+              <path id="xy_ctl_NE" class="button lcars-husk-bg" d="m47 33v-32.35c15.992 2.4474 29.977 16.417 32.424 32.35z"></path>
+              <path id="xy_ctl_SW" class="button lcars-husk-bg" d="m33 47v32.35c-15.992-2.4474-29.977-16.417-32.424-32.35z"></path>
+              <path id="xy_ctl_SE" class="button lcars-husk-bg" d="m47 47v32.35c15.992-2.4474 29.977-16.417 32.424-32.35z"></path>
+              <path id="xy_ctl_up" class="button lcars-golden-tanoi-bg" d="m34 10h12v-9.5c-3.8785-0.47437-8.044-0.4824-12 0z"></path>
+              <path d="m44.2 2.2v5.0271" style="fill:none;stroke-width:1.2;stroke:#000000"></path>
+              <path id="xy_ctl_left" class="button lcars-golden-tanoi-bg" d="m10 46v-12h-9.5c-0.47437 3.8785-0.4824 8.044 0 12z"></path>
+              <path d="m2.199 35.8h5.0271" style="fill:none;opacity:.889;stroke-width:1.2;stroke:#000000"></path>
+              <path id="xy_ctl_right" class="button lcars-golden-tanoi-bg" d="m70 34v12h9.5c0.47437-3.8785 0.4824-8.044 0-12z"></path>
+              <path d="m77.801 44.2h-5.0271" style="fill:none;stroke-width:1.2;stroke:#000000"></path>
+              <path id="xy_ctl_down" class="button lcars-golden-tanoi-bg" d="m46 70h-12v9.5c3.8785 0.47437 8.044 0.4824 12 0z"></path>
+              <path d="m35.8 77.8v-5.0271" style="fill:none;stroke-width:1.2;stroke:#000000"></path>
+              <path d="m11 34v12h23v23h12v-23h23v-12h-23v-23h-12v23z" class="lcars-blue-bell-bg"></path>
+              <path d="m34 13.49h12" style="fill:none;stroke-width:.75;stroke:#000000"></path>
+              <path d="m34 16.2h12" style="fill:none;stroke-width:.75;stroke:#000000"></path>
+              <path d="m34 19.48h12" style="fill:none;stroke-width:.75;stroke:#000000"></path>
+              <path d="m34 27.9h12" style="fill:none;stroke-width:.75;stroke:#000000"></path>
+              <path d="m34 59h12" style="fill:none;stroke-width:.75;stroke:#000000"></path>
+              <path id="xy_ctl_NW" class="button lcars-husk-bg" d="m32.977 33v-32.35c-15.992 2.4474-29.977 16.417-32.424 32.35z"></path>
+            </svg>
+          </div>
+        </div>
 
-	</div>
+      </div>
+    </div>
+  </div>
 
-</div>
-<div id="TRADE" class="tabcontent">
-  <div class="lcars-app-container  ">
+  <div id="TRADE" class="tabcontent">
+    <div class="lcars-app-container  ">
 
-				<!-- MAIN CONTAINER -->
-		<div id="container">
+      <!-- MAIN CONTAINER -->
+      <div id="container">
 
-<iframe src="https://www.gallog.co/trading/" height="100%" width="100%" title="Trade Window"></iframe>
+        <iframe src="https://www.gallog.co/trading/" height="100%" width="100%" title="Trade Window"></iframe>
 
-		</div>
+      </div>
 
-	</div>
+    </div>
 
-</div>
+  </div>
 
 
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
 
 </body>
+
 </html>
