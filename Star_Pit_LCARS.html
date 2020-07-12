@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/lcars.css">
+<link rel="stylesheet" href="lcars.css">
 <style>
 body {font-family: Arial;
 
@@ -74,12 +74,15 @@ pre {
 			<div class="lcars-elbow left-bottom lcars-tan-bg"></div>
 
 			<!-- BAR WITH TITLE -->
-			<div class="lcars-bar horizontal">
+      <div class="lcars-bar spacer"></div>
+			<div class="lcars-bar horizontal lcars-dodger-blue-bg right-divider">
 				<div class="lcars-title right">LCARS</div>
 			</div>
+      <div class="lcars-bar spacer"></div>
 
 			<!-- ROUNDED EDGE DECORATED -->
-			<div class="lcars-bar horizontal right-end decorated"></div>
+
+      <div class="lcars-bar horizontal lcars-tan-bg right-end"></div>
 		</div>
 
 		<!-- SIDE MENU ================================================= -->
@@ -90,6 +93,7 @@ pre {
         <button class="tablinks" onclick="openCity(event, 'Systems')">Systems</button>
         <button class="tablinks" onclick="openCity(event, 'WARP')">WARP</button>
         <button class="tablinks" onclick="openCity(event, 'LCARS')">LCARS</button>
+        <button class="tablinks" onclick="openCity(event, 'TRADE')">TRADE</button>
       </div>
 			<!-- FILLER -->
 			<div class="lcars-bar lcars-u-1"></div>
@@ -101,8 +105,10 @@ pre {
 			<!-- ELBOW -->
 			<div class="lcars-elbow left-top lcars-tan-bg"></div>
 			<!-- BAR -->
-			<div class="lcars-bar horizontal both-divider bottom"></div>
+      <div class="lcars-bar spacer"></div>
+			<div class="lcars-bar horizontal lcars-dodger-blue-bg both-divider bottom"></div>
 			<!-- ROUNDED EDGE -->
+      <div class="lcars-bar spacer"></div>
 			<div class="lcars-bar horizontal right-end left-divider bottom"></div>
 		</div>
 
@@ -122,23 +128,16 @@ pre {
                   <div class="lcars-element button">Button</div>
                   <div class="lcars-element lcars-red-bg">Coloured</div>
                 </div>
-                <div class="lcars-column">
-                  <div class="lcars-element left-rounded">left round</div>
-                  <div class="lcars-element right-rounded">right round</div>
-                  <div class="lcars-element rounded">round</div>
-                </div>
+
               </div>
               <div class="lcars-column">
                         <div class="lcars-column">
                           <div class="lcars-element">Simple</div>
                           <div class="lcars-element button">Button</div>
                           <div class="lcars-element lcars-red-bg">Coloured</div>
-                        </div>
-                        <div class="lcars-column">
                           <div class="lcars-element right-rounded">left round</div>
                           <div class="lcars-element right-rounded">right round</div>
                           <div class="lcars-element rounded">round</div>
-                        </div>
                       </div>
 
     </div>
@@ -147,9 +146,6 @@ pre {
     </div>
   </div>
 </div>
-</div>
-  </div>
-
 <div id="Systems" class="tabcontent">
   <div class="lcars-app-container">
 
@@ -246,6 +242,19 @@ pre {
 													<div class="lcars-element rounded">round</div>
 												</div>
 											</div>
+
+		</div>
+
+	</div>
+
+</div>
+<div id="TRADE" class="tabcontent">
+  <div class="lcars-app-container  ">
+
+				<!-- MAIN CONTAINER -->
+		<div id="container">
+
+<iframe src="https://www.gallog.co/trading/" height="100%" width="100%" title="Trade Window"></iframe>
 
 		</div>
 
