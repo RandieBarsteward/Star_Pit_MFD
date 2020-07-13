@@ -403,12 +403,24 @@ h6 {
   margin-top: 0.25rem;
   margin-left: 0.25rem;
   padding-left: 9.5rem;
-  padding-top: 4.5rem;
+  padding-top: 2.5rem;
   padding-bottom: 4.5rem;
   width: 90rem;
-  height:30rem;
+
   overflow: hidden;
 }
+
+.lcars-app-container #tradecontainer {
+  margin-top: 0.25rem;
+  margin-left: 0.25rem;
+  padding-left: 9.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 90rem;
+  height:30rem;
+  overflow: initial;
+}
+
 .lcars-row {
   display: inline-flex;
   flex-direction: row;
@@ -732,6 +744,7 @@ h6 {
 }
 path.button:active {
   fill: #c69;
+  border-color: none;
 }
 .lcars-text-box,
 a.lcars-text-box {
@@ -816,8 +829,9 @@ a.lcars-text-box.blink {
   }
 }
 .lcars-bracket {
-  background-color: #fc6;
+  background-color: #c69;
 }
+
 .lcars-bracket.left {
   width: 1.5rem;
   border-top-left-radius: 1.5rem;
@@ -1670,7 +1684,7 @@ a.lcars-text-box.blink {
   width: 3.625rem;
 }
 .lcars-u-2 {
-  width: 15.25rem;
+  width: 11.5rem;
 }
 .lcars-u-2.half {
   width: 11.375rem;
@@ -1785,4 +1799,65 @@ a:active {
   color: #ff9;
   font-weight: 500;
   background-color: #0c0806;
+}
+
+.lcars-column-gap
+{
+width: 2rem;
+
+}
+
+.missile {
+  position: absolute;
+  top: 42%;
+  left: 465px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #000;
+}
+.guns1 {
+  position: absolute;
+  top: 160px;
+  left: 460px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #000;
+}
+
+.guns2 {
+  position: absolute;
+  top: 160px;
+  left: 565px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #000;
+}
+
+.Torp {
+  position: absolute;
+  top: 42%;
+  left: 560px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #000;
+}
+
+div#spool {
+background: #821;
+}
+
+div#spool:active {
+background: #e10;
+}
+
+div#jump {
+background: #e95;
+}
+
+div#jump:active {
+background: #f90;
+}
+
+div#landingtools {
+
 }
