@@ -86,29 +86,6 @@ function vib () {
     if (navigator.vibrate) navigator.vibrate(50);
 }
 
-
-
-function buttonHandler(btnElem){
-
-    if (btnElem.className==='toggleon') {
-        btnElem.className='toggleoff';
-    }else {
-
-        btnElem.className='toggleon';
-    }
-
-}
-
-function buttonHandlerpower(btnElem){
-
-    if (btnElem.className==='toggleon2') {
-        btnElem.className='toggleon2off';
-    }else {
-
-        btnElem.className='toggleon2';
-    }
-
-}
 function setTab(tabName) {
     for (let t = 0; t < tabChildren.length; t++) {
         const tab = tabChildren[t];
@@ -137,8 +114,6 @@ function setTab(tabName) {
     }
 }
 
-
-
 function initVJoy(){
 	mfd.vJoy.info(vji => {
 		// simple error checks
@@ -164,6 +139,21 @@ function initVJoy(){
 	});
 }
 
+$('.starpit').click(function() {
+    $(this).toggleClass('active');
+});
+
+$('.starpitRedToggle').click(function() {
+    $(this).toggleClass('active');
+});
+
+$('.starpit-Long').click(function() {
+    $(this).toggleClass('active');
+});
+
+$('.starpitLeftCurve').click(function() {
+    $(this).toggleClass('active');
+});
 
 function fireBtn(btn) {
     vd1.setBtn(btn, true);
@@ -172,7 +162,7 @@ function fireBtn(btn) {
 
 // Funtions for toggle vJoy input
 
-var wpngroup1 = true;
+var wpngroup1 = false;
 
 function wpnGrp1Safe(btn) {
   if (wpngroup1 == false) {
@@ -184,7 +174,7 @@ function wpnGrp1Safe(btn) {
   }
 }
 
-var wpngroup2 = true;
+var wpngroup2 = false;
 
 function wpnGrp2Safe(btn) {
   if (wpngroup2 == false) {
@@ -196,18 +186,30 @@ function wpnGrp2Safe(btn) {
   }
 }
 
+var CMSpread = false;
 
-  var rangeSlider = document.getElementById("rs-range-line");
-  var rangeBullet = document.getElementById("rs-bullet");
-
-  rangeSlider.addEventListener("input", showSliderValue, false);
-
-  function showSliderValue() {
-    rangeBullet.innerHTML = rangeSlider.value;
-    var bulletPosition = (rangeSlider.value /rangeSlider.max);
-    rangeBullet.style.left = (bulletPosition * 578) + "px";
-    zAxis(rangeSlider.value);
+function CMSpreadToggle(btn) {
+  if (CMSpread == false) {
+      vd1.setBtn(btn, true);
+      CMSpread = true;
+  }else {
+      vd1.setBtn(btn, false);
+      CMSpread = false;
   }
+}
+
+
+var rangeSlider = document.getElementById("rs-range-line");
+var rangeBullet = document.getElementById("rs-bullet");
+
+rangeSlider.addEventListener("input", showSliderValue, false);
+
+function showSliderValue() {
+  rangeBullet.innerHTML = rangeSlider.value;
+  var bulletPosition = (rangeSlider.value /rangeSlider.max);
+  rangeBullet.style.left = (bulletPosition * 578) + "px";
+  zAxis(rangeSlider.value);
+}
 
 
 function zAxis(val) {
